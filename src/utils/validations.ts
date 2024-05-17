@@ -25,8 +25,8 @@ export const serviceValidationSchema = Yup.object().shape({
 });
 // ---------------------- ORDERS -----------------------
 export const orderValidationSchema = Yup.object().shape({
-    cliet_full_name: Yup.string().required("Mijoz ismi kiritilmadi"),
-    client_phonenumber: Yup.string().required('Phone number is required'),
+    client_full_name: Yup.string().required("Mijoz ismi kiritilmadi"),
+    client_phone_number: Yup.string().required('Phone number is required'),
     service_id: Yup.string().required('Service id is required'),
     amount: Yup.string().required('Amount is required'),
 });

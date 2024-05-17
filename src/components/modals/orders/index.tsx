@@ -28,8 +28,8 @@ const Index = ({ open, handleClose, item }: ModalProps) => {
   },[])
   console.log(item, 'modal')
   const initialValues: CreateOrder = {
-    cliet_full_name: "",
-    client_phonenumber: "",
+    client_full_name: "",
+    client_phone_number: "",
     service_id: "",
     amount: ""
   };
@@ -78,7 +78,7 @@ const Index = ({ open, handleClose, item }: ModalProps) => {
           {({ isSubmitting }) => (
             <Form>
               <Field
-                name="cliet_full_name"
+                name="client_full_name"
                 type="text"
                 as={TextField}
                 label="Mijoz ismini kiriting"
@@ -87,14 +87,14 @@ const Index = ({ open, handleClose, item }: ModalProps) => {
                 variant="outlined"
                 helperText={
                   <ErrorMessage
-                    name="cliet_full_name"
+                    name="client_full_name"
                     component="p"
                     className="text-[red] text-[15px]"
                   />
                 }
               />
               <Field
-                name="client_phonenumber"
+                name="client_phone_number"
                 type="text"
                 as={TextField}
                 label="Mijoz telefon raqami"
@@ -103,7 +103,7 @@ const Index = ({ open, handleClose, item }: ModalProps) => {
                 variant="outlined"
                 helperText={
                   <ErrorMessage
-                    name="client_phonenumber"
+                    name="client_phone_number"
                     component="p"
                     className="text-[red] text-[15px]"
                   />

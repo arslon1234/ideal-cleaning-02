@@ -12,10 +12,10 @@ import edit from "../../assets/edit.svg";
 import del from "../../assets/delete.svg";
 import { TableProps } from "@global-interface";
 import { useSearchParams } from "react-router-dom";
-const GlobalTable = (props: TableProps & {renderIndex: (index:number) => number}) => {
-    const [searchParams] = useSearchParams();
-    const page = Number(searchParams.get("page")) || 1;
-    const limit = Number(searchParams.get("limit")) || 10;
+const GlobalTable = (props: TableProps) => {
+    const [searchParams] = useSearchParams()
+    const page = Number(searchParams.get('page')) || 1
+    const limit = Number(searchParams.get("limit")) || 10
   return (
     <Box sx={{ width: "100%" }}>
       <Paper sx={{ width: "100%", mb: 2 }}>
@@ -48,8 +48,8 @@ const GlobalTable = (props: TableProps & {renderIndex: (index:number) => number}
                   ))
                 : props.body?.map((item, index) => (
                     <TableRow key={index}>
-                      <TableCell className="text-emerald-600">
-                      <span className="text-blue">{page * limit - (limit - 1) + index}</span>
+                      <TableCell>
+                        {page * limit - (limit - 1) + index}
                       </TableCell>
                       {props.headers?.map((header, i) => (
                         i >= 1 &&
@@ -70,7 +70,7 @@ const GlobalTable = (props: TableProps & {renderIndex: (index:number) => number}
                                 onClick={() => props.editItem(item)}
                               />
                             </div>
-                          ) : header.title === "Date" ? (<span>{item[header?.value]}</span>) : item[header.value]}
+                          ) : header.title === "Date" ? (<span>{item[header?.value].slice(0,10)}</span>) : item[header.value]}
                         </TableCell>
                       ))}
                     </TableRow>

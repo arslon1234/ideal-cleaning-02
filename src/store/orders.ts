@@ -10,28 +10,10 @@ const useOrderStore = create<OrdersStore>((set) => ({
       set({ isLoading: true });
       const response = await orders.get_orders(params);
       if (response.status === 200) {
-        // const updatedData = response?.data?.orders_list.map((item, index) => ({
-        //   ...item,
-        //   index: params.page * params.limit - (params.limit - 1) + index
-        // }));
-        set((state) => {
-          const newData = response?.data?.orders_list.map((item, index) => ({
-            ...item,
-            index: params.page * params.limit - (params.limit - 1) + index,
-          }));
-        return {...state, data: newData}
+        set({
+          totalCount: Math.ceil(response.data.total / params.limit),
+          data: response?.data?.orders_list,
         });
-        // set((state) => ({
-        //   data: [...state.data, response?.data?.orders_list],
-        // }));
-        // set((state) => {
-        //   const newData = state.data.map((item, index) => ({
-        //     ...item,
-        //     index: params.page * params.limit - (params.limit - 1) + index,
-        //   }));
-        //   return {...state, data: newData}
-        // });
-        set({ totalCount: Math.ceil(response.data.total / params.limit) });
       }
       set({ isLoading: false });
     } catch (error) {

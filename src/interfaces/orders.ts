@@ -11,8 +11,8 @@ export interface OrdersStore {
     createData: (data:CreateOrder)=> Promise<any>,
 }
 export interface CreateOrder {
-    cliet_full_name: string,
-    client_phonenumber: string,
+    client_full_name: string,
+    client_phone_number: string,
     amount: number | string,
     service_id: string
 }

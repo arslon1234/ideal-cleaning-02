@@ -18,6 +18,11 @@ export interface TableProps {
   headers: Header[];
   body: BodyItem[];
   isLoading: boolean;
-  deleteItem?: (id: string)=> void,
-  editItem?: (item: any)=> void,
+  deleteItem: (id: string)=> void,
+  editItem: (item: any)=> void,
+}
+export interface PaginationProps {
+  totalCount: number,
+  page: number,
+  setParams: (value:number)=> void
 }
